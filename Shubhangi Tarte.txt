@@ -1,0 +1,412 @@
+1----Java prog to print Hello and Name
+
+package assignment1;
+
+public class hello {
+
+	public static void main(String[] args) {
+		System.out.println("Hello");
+		System.out.println("Shubhangi Tarte");
+	}
+
+}
+
+*****output******
+Hello
+Shubhangi Tarte
+
+2---Java prog to print Sum
+
+package assignment1;
+
+import java.util.Scanner;
+
+public class Sum {
+
+	public static void main(String[] args) {
+		int x,y;
+		Scanner s = new Scanner(System.in);
+        System.out.print("Enter first number:");
+        x = s.nextInt();
+        System.out.print("Enter second number:");
+        y = s.nextInt();
+		System.out.println("Sum="+(x+y));
+	}
+
+}
+
+*******Output******
+Enter first number:74
+Enter second number:36
+Sum=110
+
+
+
+3-----Java prog for DIV
+
+package assignment1;
+import java.util.Scanner;
+
+public class Divide {
+
+	public static void main(String[] args) {
+		int x,y;
+		Scanner s = new Scanner(System.in);
+        System.out.print("Enter first number:");
+        x = s.nextInt();
+        System.out.print("Enter second number:");
+        y = s.nextInt();
+		
+		System.out.println("Div="+(x/y));
+	}
+
+}
+
+******output******
+Enter first number:50
+Enter second number:3
+Div=16
+
+
+
+4-----Print results of operations
+
+class operations
+{
+public static void main(String args[])
+{
+System.out.println(-5+8*6);
+System.out.println((55+9)%9);
+System.out.println(20+3*5/8);
+System.out.println(5+15/3*2-8%3);
+}
+
+}
+*****Output***********
+43
+1
+21
+13
+
+
+
+
+5----Product of 2 No.
+
+package assignment1;
+
+import java.util.Scanner;
+
+public class Multi {
+
+	public static void main(String[] args) {
+		int x,y,z;
+		Scanner s = new Scanner(System.in);
+        System.out.print("Enter first number:");
+        x = s.nextInt();
+        System.out.print("Enter second number:");
+        y = s.nextInt();
+        z=x*y;
+        System.out.print(""+x+"*" +""+y+"=" +z);
+	}
+
+}
+
+*****output*****
+Enter first number:25
+Enter second number:5
+25*5=125
+
+
+
+6---Arithmetic Operations
+
+package assignment1;
+
+import java.util.Scanner;
+
+public class Aoperations {
+
+	public static void main(String[] args) {
+		int x,y,sum,sub,mul,div,rem;
+		Scanner s = new Scanner(System.in);
+        System.out.print("Enter first number:");
+        x = s.nextInt();
+        System.out.print("Enter second number:");
+        y = s.nextInt();
+        sum=x+y;
+        System.out.println(""+x+"+" +""+y+"=" +sum);
+        sub=x-y;
+        System.out.println(""+x+"-" +""+y+"=" +sub);
+        mul=x*y;
+        System.out.println(""+x+"*" +""+y+"=" +mul);
+        div=x/y;
+        System.out.println(""+x+"/" +""+y+"=" +div);
+        rem=x%y;
+        System.out.println(""+x+"%" +""+y+"=" +rem);
+        
+	}
+
+}
+
+*****output******
+Enter first number:125
+Enter second number:24
+125+24=149
+125-24=101
+125*24=3000
+125/24=5
+125%24=5
+
+
+
+7----Table
+
+package assignment1;
+import java.util.Scanner;
+
+public class table {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+	    System.out.print("enter number: ");
+		int num = s.nextInt();
+		  for (int i=0; i< 10; i++)
+		  {
+		   System.out.println(num + " x " + (i+1) + " = " + (num * (i+1)));
+	}
+
+}
+}
+
+
+*****output******
+enter number: 8
+8 x 1 = 8
+8 x 2 = 16
+8 x 3 = 24
+8 x 4 = 32
+8 x 5 = 40
+8 x 6 = 48
+8 x 7 = 56
+8 x 8 = 64
+8 x 9 = 72
+8 x 10 = 80
+
+8------Expressions
+
+class exp1
+{
+public static void main(String args[])
+{
+System.out.println((25.5*3.5-3.5*3.5)/(40.5-4.5));
+
+}
+
+}
+
+********output******
+2.138888888888889
+
+
+
+10------Expression
+
+class exp2
+{
+public static void main(String args[])
+{
+System.out.println(4.0*(1-(1.0/3)+(1.0/5)-(1.0/7+(1.0/9)-(1.0/11))));
+
+}
+
+}
+******output******
+2.8144300144300147
+
+
+
+11--Circle peremeter and area
+
+import java.util.Scanner;
+
+class Circle{
+public static void main(String args[])
+{
+float pi=3.14f,r;
+double p,a;
+
+Scanner s= new Scanner(System.in);
+System.out.print("enter radius=");
+r=s.nextFloat();
+p=2*pi*r;
+a=pi*r*r;
+System.out.println("Perimeter="+p);
+System.out.println("Area="+a);
+
+}
+}
+
+******output*******
+enter radius=7.5
+Perimeter=47.10000228881836
+Area=176.62501525878906
+
+
+
+
+12----- Average of 3 no.
+
+import java.util.Scanner;
+ class Avg
+{
+public static void main(String args[])
+{
+int a,b,c;
+double avg;
+Scanner s=new Scanner(System.in);
+System.out.println("enter 3 numbers");
+a=s.nextInt();
+b=s.nextInt();
+c=s.nextInt();
+avg=(a+b+c)/3;
+System.out.print("Average="+avg);
+
+}
+}
+
+*******output*********
+enter 3 numbers
+1
+2
+3
+Average=2.0
+
+
+
+13----Rectangle area and perimeter
+
+import java.util.Scanner;
+
+class Rectangle
+{
+ public static void main(String args[])
+ {
+  float w,h,p,a;
+  Scanner s= new Scanner(System.in);
+  w=s.nextFloat(); 
+  h=s.nextFloat();
+System.out.println("width ="+w);
+ System.out.println("height ="+h);
+  p=2*(w+h);
+  a=w*h;
+  System.out.println("Perimeter is 2 *("+w+"+"+h+")"+"="+p);
+  System.out.println("Area is "+w +"*"+h+"="+a);
+
+}
+}
+
+*****output******
+5.5 8.5
+width =5.5
+height =8.5
+Perimeter is 2 *(5.5+8.5)=28.0
+Area is 5.5*8.5=46.75
+
+
+
+14-----American flag
+class Pattern2
+{
+public static void main(String args[])
+{
+System.out.println("* * * * * * ===================================");
+System.out.println(" * * * * *  ===================================");
+System.out.println("* * * * * * ===================================");
+System.out.println(" * * * * *  ===================================");
+System.out.println("* * * * * * ===================================");
+System.out.println(" * * * * *  ===================================");
+System.out.println("* * * * * * ===================================");
+System.out.println(" * * * * *  ===================================");
+System.out.println("* * * * * * ===================================");
+System.out.println("===============================================");
+System.out.println("===============================================");
+System.out.println("===============================================");
+System.out.println("===============================================");
+System.out.println("===============================================");
+System.out.println("===============================================");
+
+}
+
+
+}
+
+*****output*****
+* * * * * * ===================================
+ * * * * *  ===================================
+* * * * * * ===================================
+ * * * * *  ===================================
+* * * * * * ===================================
+ * * * * *  ===================================
+* * * * * * ===================================
+ * * * * *  ===================================
+* * * * * * ===================================
+===============================================
+===============================================
+===============================================
+===============================================
+===============================================
+===============================================
+
+15------- Swap
+
+import java.util.Scanner;
+class Swap
+{
+
+public static void main(String args[])
+{
+ int a, b,c;
+ Scanner s= new Scanner(System.in);
+ System.out.println("Enter two values");
+  a=s.nextInt(); 
+  b=s.nextInt(); 
+  System.out.println("a="+a+" b="+b);
+ c=a;
+ a=b;
+ b=c;
+ System.out.println("a="+a+" b="+b);
+
+}
+
+******Output*******
+Enter two values
+10 20
+a=10 b=20
+a=20 b=10
+}
+
+
+16-----FACE PATTERN
+
+class pattern
+{
+public static void main(String args[])
+{
+System.out.println(" +" +'"'+'"'+'"'+'"'+'"'+  "+");
+System.out.println("[| o o |]" );
+System.out.println(" |  ^  |");
+System.out.println(" | '-' |");
+System.out.println(" +-----+");
+
+
+}
+
+}
+
+*****OUTPUT******
+ +"""""+
+[| o o |]
+ |  ^  |
+ | '-' |
+ +-----+
