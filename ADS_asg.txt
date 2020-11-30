@@ -1,0 +1,853 @@
+/***Stack*****/
+
+class push
+{
+static int max=10;
+int arr[]= new int [max];
+int i=-1;
+void push(int x)
+{
+if(i>=9)
+{
+System.out.println("statck overflow");
+}
+else
+{
+arr[++i]=x;
+System.out.println("element entered sucessfully");
+}
+}
+void pop()
+{
+if(i<0)
+{
+System.out.println("statck  underflow");
+}
+else
+{
+int temp=arr[i];
+System.out.println("elemnt is removed is "+arr[i]);
+arr[i]=arr[--i];
+System.out.println(arr[i]+" ");
+}
+}
+}
+class Pushpop
+{
+public static void main(String[] args)
+{
+push obj= new push();
+obj.push(10);
+}
+}
+
+
+/****Array******/
+
+public class Del 
+{
+	
+void insert(int arr[],int element,int position)
+{
+int last=arr.length;
+for(int i=arr.length-1;i>position-1;i--)
+{
+arr[i]=arr[i-1];
+}
+arr[position-1]=element;
+System.out.println("Insert "+element+" at "+position+" Position : ");
+for(int i=0;i<arr.length;i++)
+System.out.print(arr[i]+" ");
+System.out.print(last);
+System.out.println();
+}
+	
+void delete(int []arr,int element)
+{
+	System.out.println("Delete "+element +" From array : ");
+for( int i=0; i< arr.length; i++ )
+{
+if ( element == arr[i] )
+{
+for(int j=i;j<arr.length-1;j++)
+{
+arr[j]=arr[j+1];
+}
+break;
+}
+}
+for(int i=0;i<arr.length-1;i++)
+System.out.print(arr[i]+" ");
+System.out.println();
+		
+}
+	
+public static void main(String[] args)
+ {
+int []arr= {7,8,1,2,3,4,5,9};
+Del op=new Del();
+op.insert(arr,2,3);
+op.delete(arr, 5);
+}
+}
+
+
+
+
+/******QUEUE Operations*******/
+import java.util.Scanner;
+class Queue
+{
+int arr[];
+int front=0,rear=-1,max,counter;
+Queue(int max)
+{
+this.max= max;
+arr=new int [max];
+}
+void enqueue(int data)
+{
+if(counter>= max)
+{
+System.out.println("full");
+}
+else
+{
+rear=(rear+1)%max;
+arr[rear]=data;
+System.out.println("element is inserted is"+arr[rear]);
+++counter;
+}
+}
+void dequeue()
+{
+if(front==0 && rear==-1)
+{
+System.out.println("empty");
+}
+else if(front==rear)
+{
+System.out.println("elelemt is deleted is"+arr[front]);
+front=0;
+rear=-1;
+}
+else
+{
+front=front%max;
+System.out.println("element is deleted "+arr[front]);
+front++;
+--counter;
+}
+}
+void disp()
+{
+for(int i=front;i<=rear;i++)
+{
+System.out.println(arr[i]);
+}
+}
+public static void main(String[] args)
+{
+System.out.println("Enter the size of Queue");
+Scanner ob = new Scanner(System.in);
+int size=ob.nextInt();
+Queue obj= new Queue(size);
+obj.enqueue(10);
+obj.enqueue(20);
+obj.enqueue(30);
+// obj.enqueue(40);
+obj.dequeue();
+obj.dequeue();
+obj.dequeue();
+obj.dequeue();
+obj.disp();
+}
+}
+
+
+
+
+
+
+/********Linklist*******/
+
+class node
+{
+int data;
+node next;
+}
+class linked
+{
+public static void main(String[] args)
+{
+Linkedlist ob = new Linkedlist();
+ob.insertfirst(10);
+ob.insertfirst(20);
+ob.insertlast(30);
+ob.deletestart();
+ob.show();
+}
+}
+class Linkedlist
+{
+node head;
+int length=0;
+public void insertlast(int data)
+{
+node obj= new node();
+obj.data=data;
+if(head==null)
+{
+head=obj;
+}
+else
+{
+node n = head;
+while(n.next !=null)
+{
+n=n.next;
+}
+n.next=obj;
+}
+length++;
+}
+public void insertfirst(int data)
+{
+node obj= new node();
+obj.data=data;
+obj.next=head;
+head=obj;
+length++;
+}
+void deletestart()
+{
+if(head !=null)
+{
+head=head.next;
+}
+}
+public void insertAt(int index,int data)
+{
+node obj= new node();
+obj.data=data;
+node ob=head;
+if(index==0)
+{
+insertfirst(data);
+}
+else
+{
+for(int i=0;i<index-1;i++)
+{
+ob= ob.next;
+}
+obj.next=ob.next;
+ob.next=obj;
+}
+length++;
+}
+public void delete(int index)
+{
+node ob=head;
+node temp=null;
+if(index==0)
+{
+head=head.next;
+}
+else
+{
+for(int i=0;i<index-1;i++)
+{
+ob= ob.next;
+}
+temp=ob.next;
+ob.next=temp.next;
+}
+}
+public void show()
+{
+node ob= head;
+while(ob.next !=null)
+{
+System.out.println(ob.data);
+ob=ob.next;
+}
+System.out.println(ob.data);
+}
+}
+
+
+
+
+
+/******** DoublyLInkedList******/
+class node2
+{
+int data;
+node2 flink;
+node2 blink;
+node2(int data)
+{
+this.data=data;
+}
+
+class doublyLL
+{
+node2 head;
+int length;
+doublyLL()
+{
+this.length=0;
+}
+void insertAtFirst(int data)
+{
+node2 am = new node2(data);
+if(head== null)
+{
+head=am;
+}
+else
+{
+head.blink=am;
+am.flink=head;
+head=am;
+}
+length++;
+}
+void insertAtIndex(int index,int data)
+{
+node2 oj= new node2(data);
+if(index==0)
+{
+insertAtFirst(data);
+}
+else if(index>length)
+{
+insertLast(data);
+}
+else
+{
+node2 pal=head;
+while(pal.flink != null)
+{
+int i= 1;
+i++;
+if(i==length)
+{
+break;
+}
+pal=pal.flink;
+}
+oj.flink=pal.flink;
+oj.blink=pal;
+pal.flink=oj;
+pal.flink.flink.blink=oj;
+}
+}
+void insertLast(int data)
+{
+node2 ag = new node2(data);
+if(head== null)
+{
+insertAtFirst(data);
+}
+else
+{
+node2 am = head;
+while(am.flink != null)
+{
+am= am.flink;
+length++;
+}
+am.flink=ag;
+ag.blink=am;
+}
+length++;
+}
+void disp()
+{
+node2 am=head;
+while(am.flink != null)
+{
+System.out.println(am.data);
+am=am.flink;
+}
+System.out.println(am.data);
+}
+void disprev()
+{
+node2 am= head;
+while(am.flink!= null)
+{
+am=am.flink;
+}
+while(am.blink != null)
+{
+System.out.println(am.data);
+am=am.blink;
+}
+System.out.println(am.data);
+}
+public static void main(String[] args)
+{
+doublyLL d= new doublyLL();
+d.insertAtFirst(50);
+d.insertAtFirst(40);
+d.insertAtIndex(0, 10);
+d.disp();
+
+}
+}
+
+/*******Circular LL****/
+
+import java.util.*;
+class CircularDoublyLinked{
+Node head;
+int length=0;
+boolean isEmpty()
+{
+return head==null;
+}
+public void bigDelete()
+{
+    Node temp=head;
+if(isEmpty())
+{
+System.out.println("List is empty");
+}
+if(length==1)
+{
+head.next=null;
+head=null;
+
+}
+else{
+    while(temp.next!=head)
+    {
+    temp=temp.next;
+    }
+    temp.next=temp.next.next;
+    head.next=head;
+}
+
+
+}
+
+public void posDelete(int pos)
+{
+Node temp=head;
+int i=1;
+while(temp.next!=head)
+{
+i++;
+if(i==pos)
+{
+break;
+}
+temp=temp.next;
+
+}
+temp.next=temp.next.next;
+temp.next.next=null;
+length--;
+}
+public void endDelete()
+{
+    Node temp=head;
+if(length==1)
+{
+head.next=null;
+head=null;
+}
+else
+    while(temp.next.next!=head){
+    
+    temp=temp.next;
+     }
+temp.next.next=null;
+temp.next= head;
+
+
+}
+
+}
+
+
+
+
+
+/*********Binary Treeee****/
+class Node 
+{ 
+    int key; 
+    Node left, right; 
+    public Node(int item) 
+    { 
+        key = item; 
+        left = right = null; 
+    } 
+} 
+  
+public class BT1 
+{ 
+    Node root; 
+  
+    BT1() 
+    { 
+        root = null; 
+    } 
+  
+     void printPostorder(Node node) 
+    { 
+        if (node == null) 
+            return; 
+  
+        printPostorder(node.left); 
+        printPostorder(node.right); 
+        System.out.print(node.key + " "); 
+    } 
+  
+    void printInorder(Node node) 
+    { 
+        if (node == null) 
+            return; 
+          printInorder(node.left); 
+          System.out.print(node.key + " "); 
+          printInorder(node.right); 
+    } 
+  
+    void printPreorder(Node node) 
+    { 
+        if (node == null) 
+            return; 
+          System.out.print(node.key + " "); 
+          printPreorder(node.left); 
+          printPreorder(node.right); 
+    } 
+  
+    // Wrappers over above recursive functions 
+    void printPostorder()  {     printPostorder(root);  } 
+    void printInorder()    {     printInorder(root);   } 
+    void printPreorder()   {     printPreorder(root);  } 
+  
+    // Driver method 
+    public static void main(String[] args) 
+    { 
+        BT1 tree = new BT1(); 
+        tree.root = new Node(6); 
+        tree.root.left = new Node(2); 
+        tree.root.right = new Node(3); 
+        tree.root.left.left = new Node(4); 
+        tree.root.left.right = new Node(5); 
+  
+        System.out.println("Preorder traversal of binary tree is "); 
+        tree.printPreorder(); 
+  
+        System.out.println("\nInorder traversal of binary tree is "); 
+        tree.printInorder(); 
+  
+        System.out.println("\nPostorder traversal of binary tree is "); 
+        tree.printPostorder(); 
+    } 
+}
+
+
+/******Binary search Tree******/
+class joker {
+joker left;
+joker right;
+int data;
+joker(int data)
+{
+this.data = data;
+}
+}
+class BST {
+joker insert(joker node, int val)
+{
+if (node == null)
+{
+node = new joker(val);
+return node;
+}
+if (val < node.data)
+{
+node.left = insert(node.left, val);
+}
+else {
+node.right = insert(node.right,val);
+}
+return node;
+}
+void dispinorder(joker node)
+{
+if(node ==null)
+{
+return;
+}
+dispinorder(node.left);
+System.out.println(node.data);
+dispinorder(node.right);
+}
+void disppreorder(joker node)
+{
+if(node== null)
+{
+return;
+}
+System.out.println(node.data);
+disppreorder(node.left);
+disppreorder(node.right);
+}
+static boolean flag=false;
+void search(joker node,int key)
+{
+if(node==null)
+{
+System.out.println("empty");
+}
+else
+{
+if(node.data==key)
+{
+flag=true;
+return;
+}
+if(flag==false && node.left !=null)
+{
+search(node.left,key);
+}
+if(flag ==false && node.right != null)
+{
+search(node.right,key);
+}
+}
+}
+void disppostorder(joker node)
+{
+if(node== null)
+{
+return;
+}
+disppreorder(node.left);
+disppreorder(node.right);
+System.out.println(node.data);
+}
+int counter(joker node)
+{
+if(node== null)
+return 0;
+else
+{
+int count=1;
+count= count+counter(node.left);
+count+=counter(node.right);
+return count;
+}
+}
+public joker delete(joker node, int val)
+{
+if(node == null)
+{
+return null;
+}
+if(val>node.data)
+{
+node.right=delete(node.right,val);
+}
+else if(val<node.data)
+{
+node.left=delete(node.left,val);
+}
+else
+{
+if(node.left==null || node.right == null)
+{
+joker temp=null;
+temp = node.left == null ? node.right:node.left;
+if(temp == null)
+{
+return null;
+}
+else
+{
+return temp;
+}
+}
+else
+{
+joker successor = getsuccessor(node);
+node.data=successor.data;
+node.right=delete(node.right,node.data);
+return node;
+}
+}
+return node;
+}
+public joker getsuccessor(joker node)
+{
+if(node == null)
+{
+return null;
+}
+joker temp=node.right;
+while(temp.left!= null)
+{
+temp=temp.left;
+}
+return temp;
+}
+}
+class shree {
+static joker root = null;
+public static void main(String[] args) {
+BST obj = new BST();
+root = obj.insert(root, 50);
+root = obj.insert(root, 40);
+root = obj.insert(root, 30);
+root = obj.insert(root, 80);
+obj.delete(root,30);
+obj.disppreorder(root);
+System.out.println(obj.counter(root));
+obj.delete(root,30);
+obj.search(root, 30);
+if(BST.flag)
+{
+System.out.println("found");
+}
+}
+}
+
+
+
+/*******Graph*******/
+import java.util.*;
+class graph
+{
+public static void main(String[] args)
+{
+graph1 ob = new graph1(5);
+ob.addEdge(0, 1);
+ob.addEdge(2,1);
+ob.addEdge(4,2);
+ob.addEdge(2,3);
+ob.addEdge(4,0);
+ob.printGraph();
+}
+}
+class graph1
+{
+ArrayList <ArrayList<Integer>> obj=new ArrayList<ArrayList<Integer>>();
+int num;
+graph1(int num)
+{
+this.num=num;
+for(int i=0;i<num;i++){
+obj.add(new ArrayList<Integer>());
+}
+}
+void addEdge(int v,int u)
+{
+obj.get(v).add(u);
+obj.get(u).add(v);
+}
+void printGraph()
+{
+for(int i=0;i<num;i++)
+{
+System.out.print(i);
+for(int x : obj.get(i))
+{
+System.out.print(" ->"+x);
+}
+System.out.println();
+}
+}
+}
+// DFS and BSF
+package Graph;
+import java.util.*;
+class DFS
+{
+public static void main(String[] args)
+{
+you obj = new you(5);
+obj.add(1, 0);
+obj.add(0, 2);
+obj.add(3, 2);
+obj.add(0,0);
+obj.print();
+obj.dispdfs(0);
+obj.BFS(0);
+}
+}
+class you
+{
+ArrayList<ArrayList<Integer>> obj= new ArrayList<ArrayList<Integer>>();
+int num;
+you(int num)
+{
+this.num=num;
+for(int i=0;i<num;i++)
+{
+obj.add(new ArrayList<Integer>());
+}
+}
+void add(int u,int v)
+{
+obj.get(u).add(v);
+obj.get(v).add(u);
+}
+void print()
+{
+for(int i=0;i<num;i++)
+{
+System.out.print(i+" ->");
+for(int x :obj.get(i))
+{
+System.out.print(x+" ");
+}
+System.out.println();
+}
+}
+void Dfs(int node,boolean ob[])
+{
+ob[node]=true;
+System.out.print(node+" ");
+for(int x : obj.get(node))
+{
+if(ob[x]==false)
+{
+Dfs(x,ob);
+}
+}
+}
+void dispdfs(int start)
+{
+boolean ob[]= new boolean[num];
+System.out.println("Dfs started");
+Dfs(start,ob);
+}
+void BFS(int start)
+{
+boolean visited[]=new boolean[num];
+Queue<Integer> q= new LinkedList<Integer>();
+q.add(start);
+System.out.print("BFS traversal");
+visited[start] = true;
+while(q.isEmpty() == false)
+{
+int node = q.poll();
+System.out.print(node+" ");
+for(int x: obj.get(node))
+{
+if(visited[x]== false)
+{
+visited[x] = true;
+q.add(x);
+}
+}
+}
+}
+}
